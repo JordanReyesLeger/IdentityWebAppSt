@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Subir Archivo";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4>Subir Archivo</h4>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-info text-center">@TempData["Message"]</div>
+                    }
+
+                    <form asp-action="UploadFile" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="year" class="form-label">Año:</label>
+                            <input type="text" name="year" id="year" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="consecutivo" class="form-label">Consecutivo:</label>
+                            <input type="text" name="consecutivo" id="consecutivo" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="descripcion" class="form-label">Descripción:</label>
+                            <textarea name="descripcion" id="descripcion" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Selecciona un archivo:</label>
+                            <input type="file" name="file" id="file" class="form-control" />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Subir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
